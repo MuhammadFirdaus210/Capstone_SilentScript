@@ -1,0 +1,7 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/white" /><!-- Warna latar belakang -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/blue_3" /> <!-- Warna dan lebar garis pinggir -->
+    <corners android:radius="8dp" /> <!-- Sudut tombol, opsional -->
+</shape>

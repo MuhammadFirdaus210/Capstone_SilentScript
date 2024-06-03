@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">SilentScript</string>
+    <string name="description">Description App</string>
+    <string name="desk_app">Description App abbaeybfbiuabdueabfbibaiiiaihfbeffaebuefbfaiiafbfbiiiooabavf aifbaieufvhefuf abfaieufeufvaib</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="google">Login With Your Google Account</string>
+    <string name="welcome">Welcome</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="remember">Remember Me</string>
+    <string name="dont">Don\'t Have Account?</string>
+    <string name="start">Get Started</string>
+    <string name="or">OR</string>
+    <string name="email">Email</string>
+    <string name="confirmation">Confirmation Password</string>
+    <string name="error_password">Password At Least 8 Characters</string>
+    <string name="error_email">Email is Not Required</string>
+    <string name="error_confirmation">Email is Not Required</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_task">Task</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_video">Video</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="search">Search abjad here</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="video">VIDEO</string>
+    <string name="huruf">ABJAD</string>
+    <string name="jumlah_abjad">24 Abjad</string>
+    <string name="jumlah_video">24 Video</string>
+
+    <string name="abjad">abjad</string>
+
+    <string-array name="data_abjad">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+    </string-array>
+</resources>
