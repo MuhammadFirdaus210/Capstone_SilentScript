@@ -13,7 +13,10 @@
         android:theme="@style/Theme.SilentScript"
         tools:targetApi="31">
         <activity
-            android:name=".VideoActivity"
+            android:name=".DetailAbjadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AbjadActivity"
             android:exported="false" />
         <activity
             android:name=".GetStarted"
