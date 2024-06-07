@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.silentscript.VideoActivity
+import com.example.silentscript.AbjadActivity
 import com.example.silentscript.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
 
     private fun onclick() {
         binding.imgVideo.setOnClickListener {
-            val intent = Intent(activity, VideoActivity::class.java)
+            val intent = Intent(activity, AbjadActivity::class.java)
             startActivity(intent)
         }
     }

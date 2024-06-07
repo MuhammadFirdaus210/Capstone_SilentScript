@@ -4,6 +4,7 @@
     <string name="desk_app">Description App abbaeybfbiuabdueabfbibaiiiaihfbeffaebuefbfaiiafbfbiiiooabavf aifbaieufvhefuf abfaieufeufvaib</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
+    <string name="play">Play</string>
     <string name="google">Login With Your Google Account</string>
     <string name="welcome">Welcome</string>
     <string name="username">Username</string>
@@ -51,16 +52,5 @@
         <item>M</item>
         <item>N</item>
         <item>O</item>
-        <item>P</item>
-        <item>Q</item>
-        <item>R</item>
-        <item>S</item>
-        <item>T</item>
-        <item>U</item>
-        <item>V</item>
-        <item>W</item>
-        <item>X</item>
-        <item>Y</item>
-        <item>Z</item>
     </string-array>
 </resources>
