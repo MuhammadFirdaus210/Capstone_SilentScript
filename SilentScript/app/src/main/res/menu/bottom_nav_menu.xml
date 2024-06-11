@@ -7,14 +7,10 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/baseline_assignment_24"
-        android:title="@string/title_task" />
-
-    <item
+        android:enabled="true"
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_video"
-        android:title="@string/title_video" />
+        android:icon="@drawable/baseline_assignment_24"
+        android:title="Library" />
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/baseline_account_circle_24"

@@ -1,12 +1,17 @@
 package com.example.silentscript.customeview.login
 
 import android.content.Context
+import android.graphics.Canvas
+import android.widget.RelativeLayout.LayoutParams
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.util.AttributeSet
+import android.view.Gravity
+import android.widget.ImageView
+import android.widget.RelativeLayout
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.example.silentscript.R
@@ -21,13 +26,17 @@ class LoginInput : AppCompatEditText {
 
     private var passwordEditText: AppCompatEditText? = null
     private var confirmationEditText: AppCompatEditText? = null
+    private var isPasswordVisible: Boolean = false
+
+
+    private lateinit var togglePasswordView: ImageView
 
     constructor(context: Context) : super(context) {
-        init()
+        init(context)
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        init()
+        init(context)
     }
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
@@ -35,14 +44,14 @@ class LoginInput : AppCompatEditText {
         attrs,
         defStyleAttr
     ) {
-        init()
+        init(context)
     }
 
-    private fun init() {
-
+    private fun init(context: Context) {
         when (id) {
             R.id.username -> {
-                username = ContextCompat.getDrawable(context, R.drawable.baseline_person) as Drawable
+                username =
+                    ContextCompat.getDrawable(context, R.drawable.baseline_person) as Drawable
                 inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
                 compoundDrawablePadding = 16
 
@@ -52,6 +61,7 @@ class LoginInput : AppCompatEditText {
                 }
                 setDrawable(username)
             }
+
             R.id.email -> {
                 email = ContextCompat.getDrawable(context, R.drawable.baseline_email) as Drawable
                 inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
@@ -66,14 +76,21 @@ class LoginInput : AppCompatEditText {
                     override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
                     override fun afterTextChanged(p0: Editable?) {}
 
-                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    override fun onTextChanged(
+                        s: CharSequence?,
+                        start: Int,
+                        before: Int,
+                        count: Int
+                    ) {
                         if (!s.isNullOrEmpty() && s.length < 8)
                             error = context.getString(R.string.error_email)
                     }
                 })
             }
+
             R.id.confirmation -> {
-                confirmation = ContextCompat.getDrawable(context, R.drawable.baseline_lock) as Drawable
+                confirmation =
+                    ContextCompat.getDrawable(context, R.drawable.baseline_lock) as Drawable
                 inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 compoundDrawablePadding = 16
 
@@ -88,36 +105,64 @@ class LoginInput : AppCompatEditText {
                     override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
                     override fun afterTextChanged(p0: Editable?) {}
 
-                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    override fun onTextChanged(
+                        s: CharSequence?,
+                        start: Int,
+                        before: Int,
+                        count: Int
+                    ) {
                         if (!s.isNullOrEmpty() && s.length < 8)
                             error = context.getString(R.string.error_password)
                         checkPasswordMatch()
                     }
                 })
             }
+
             R.id.password -> {
                 password = ContextCompat.getDrawable(context, R.drawable.baseline_lock) as Drawable
-                inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                compoundDrawablePadding = 16
+                    inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                    compoundDrawablePadding = 16
 
-                setHint(R.string.password)
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    setAutofillHints(AUTOFILL_HINT_PASSWORD)
-                }
-                setDrawable(password)
-                passwordEditText = this
-
-                addTextChangedListener(object : TextWatcher {
-                    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                    override fun afterTextChanged(p0: Editable?) {}
-
-                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                        if (!s.isNullOrEmpty() && s.length < 8)
-                            error = context.getString(R.string.error_password)
-                        checkPasswordMatch()
+                    setHint(R.string.password)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        setAutofillHints(AUTOFILL_HINT_PASSWORD)
                     }
-                })
+                    setDrawable(password)
+                    passwordEditText = this
+
+                    addTextChangedListener(object : TextWatcher {
+                        override fun beforeTextChanged(
+                            p0: CharSequence?,
+                            p1: Int,
+                            p2: Int,
+                            p3: Int
+                        ) {
+                        }
+
+                        override fun afterTextChanged(p0: Editable?) {}
+
+                        override fun onTextChanged(
+                            s: CharSequence?,
+                            start: Int,
+                            before: Int,
+                            count: Int
+                        ) {
+                            if (!s.isNullOrEmpty() && s.length < 8)
+                                error = context.getString(R.string.error_password)
+                            // Add logic if needed for additional checks
+                        }
+                    })
+
+//                    // Find the ImageView for toggling password visibility
+//                    val parentView = this.parent as? RelativeLayout
+//                    parentView?.let {
+//                        val toggleView = it.findViewById<ImageView>(R.id.password_toggle)
+//                        toggleView?.setOnClickListener {
+//                            togglePasswordVisibility(toggleView)
+//                        }
+//                    }
             }
+
             R.id.search -> {
                 search = ContextCompat.getDrawable(context, R.drawable.ic_seacrh) as Drawable
                 inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
@@ -143,6 +188,28 @@ class LoginInput : AppCompatEditText {
             } else {
                 confirmationEditText?.error = null
             }
+        }
+    }
+
+
+    private fun togglePasswordVisibility(toggleView: ImageView) {
+        if (isPasswordVisible) {
+            passwordEditText?.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            isPasswordVisible = false
+            toggleView.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.baseline_remove_red_eye_24))
+        } else {
+            passwordEditText?.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            isPasswordVisible = true
+            toggleView.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.baseline_remove_red_eye_24))
+        }
+        passwordEditText?.setSelection(passwordEditText?.text?.length ?: 0)
+    }
+
+    private fun updatePasswordToggleIcon() {
+        val icon = if (isPasswordVisible) {
+            ContextCompat.getDrawable(context, R.drawable.baseline_remove_red_eye_24)
+        } else {
+            ContextCompat.getDrawable(context, R.drawable.baseline_remove_red_eye_24)
         }
     }
 

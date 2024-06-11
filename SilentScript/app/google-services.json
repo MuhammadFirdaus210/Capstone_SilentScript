@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "403041059163",
+    "project_id": "slientscript",
+    "storage_bucket": "slientscript.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:403041059163:android:930233a5c448e982f15a7e",
+        "android_client_info": {
+          "package_name": "com.example.silentscript"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "403041059163-f1v5rglub0onm5dtqkd6hq8141s5lhno.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKPm7QHdBPVtljzrXrOnIT_QnS1Qo59RA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "403041059163-f1v5rglub0onm5dtqkd6hq8141s5lhno.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

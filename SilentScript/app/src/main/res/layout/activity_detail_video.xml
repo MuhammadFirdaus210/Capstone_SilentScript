@@ -2,16 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_detail_abjad"
+    android:id="@+id/main"
+    android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.DetailAbjadActivity">
+    tools:context=".ui.notifications.DetailActivityVideo">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="320dp"
-        android:layout_height="650dp"
+        android:layout_width="300dp"
+        android:layout_height="560dp"
+        android:elevation="10dp"
         app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,34 +23,28 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
-
             <TextView
-                android:id="@+id/top"
-                android:background="@color/blue_4"
-                android:gravity="center"
-                android:textSize="70sp"
-                android:fontFamily="@font/popmed"
-                android:textColor="@color/white"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:text="A"
+                android:layout_height="80dp"
+                android:background="@color/blue_4"
+                android:elevation="10dp"
                 />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:src="@drawable/image" />
-
+                android:layout_height="400dp"
+                android:src="@drawable/image"
+                android:scaleType="centerCrop"
+                />
             <TextView
-                android:id="@+id/bottom"
+                android:id="@+id/judul_video"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
                 android:background="@color/blue_4"
-                android:gravity="center"
-                android:textSize="70sp"
+                android:text="@string/judul"
                 android:fontFamily="@font/popmed"
                 android:textColor="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:text="A"
+                android:gravity="center"
                 />
         </LinearLayout>
 

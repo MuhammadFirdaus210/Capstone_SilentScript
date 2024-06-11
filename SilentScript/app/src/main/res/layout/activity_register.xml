@@ -1,129 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/register_main"
     android:layout_width="match_parent"
-    android:background="@drawable/register"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
     <LinearLayout
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/register"
-            android:textSize="20sp"
             android:layout_gravity="center"
-            android:textColor="@color/white"
             android:fontFamily="@font/poppins"
-            />
+            android:text="@string/register"
+            android:textColor="@color/blue_4"
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
-            android:layout_height="275dp"
+            android:layout_height="250dp"
             android:layout_gravity="center"
-            android:src="@drawable/image"
             android:contentDescription="@string/app_name"
-            />
+            android:src="@drawable/image" />
 
         <com.example.silentscript.customeview.login.LoginInput
             android:id="@+id/username"
             android:layout_width="match_parent"
-            android:textSize="14sp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
             android:layout_height="48dp"
             android:layout_gravity="start"
-            android:text="@string/username"
             android:layout_marginStart="20dp"
-            android:background="@drawable/button_background_white"
             android:layout_marginEnd="20dp"
-            />
+            android:background="@drawable/button_backgroud"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textSize="14sp" />
+
         <com.example.silentscript.customeview.login.LoginInput
             android:id="@+id/email"
             android:layout_width="match_parent"
-            android:text="@string/email"
-            android:textSize="14sp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
             android:layout_height="48dp"
             android:layout_gravity="start"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
-            android:background="@drawable/button_background_white"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            />
+            android:background="@drawable/button_backgroud"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textSize="14sp" />
+
         <com.example.silentscript.customeview.login.LoginInput
             android:id="@+id/password"
             android:layout_width="match_parent"
-            android:textSize="14sp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_gravity="start"
             android:layout_marginStart="20dp"
-            android:background="@drawable/button_background_white"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            />
+            android:background="@drawable/button_backgroud"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textSize="14sp" />
+
         <com.example.silentscript.customeview.login.LoginInput
             android:id="@+id/confirmation"
             android:layout_width="match_parent"
-            android:textSize="14sp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_height="40dp"
-            android:contentDescription="@string/confirmation"
+            android:layout_height="48dp"
             android:layout_gravity="start"
             android:layout_marginStart="20dp"
-            android:background="@drawable/button_background_white"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            />
+            android:background="@drawable/button_backgroud"
+            android:contentDescription="@string/confirmation"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textSize="14sp" />
 
         <com.example.silentscript.customeview.login.LoginButton
             android:id="@+id/register_register"
-            android:gravity="center"
             android:layout_width="match_parent"
-            android:textColor="@color/white"
-            android:contentDescription="@string/register"
-            android:textSize="14sp"
-            android:fontFamily="@font/popmed"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/or"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:fontFamily="@font/poplight"
-            android:textColor="@color/white"
-            />
-
-
-        <com.example.silentscript.customeview.login.LoginButton
-            android:id="@+id/google_register"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="@string/google"
-            android:layout_width="match_parent"
-            android:textColor="@color/white"
-            android:textSize="14sp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/register"
             android:fontFamily="@font/popmed"
-            android:layout_height="40dp"
-            android:paddingEnd="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp" />
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
