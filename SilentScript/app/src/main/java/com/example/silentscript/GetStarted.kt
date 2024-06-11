@@ -18,7 +18,6 @@ class GetStarted : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-
         onClick()
     }
 

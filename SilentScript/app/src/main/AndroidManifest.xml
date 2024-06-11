@@ -10,13 +10,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SilentScript"
+        android:theme="@style/Base.Theme.SilentScript"
         tools:targetApi="31">
         <activity
-            android:name=".VideoActivity"
+            android:name=".GameActivity"
             android:exported="false" />
         <activity
-            android:name=".GetStarted"
+            android:name=".ui.notifications.DetailActivityVideo"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.DetailAbjadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.AbjadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -26,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".GetStarted"
             android:exported="false"
             android:label="@string/title_activity_main" />
         <activity

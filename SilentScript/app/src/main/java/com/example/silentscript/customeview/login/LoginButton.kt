@@ -21,25 +21,33 @@ class LoginButton : AppCompatButton {
     private lateinit var iconGoogle: Drawable
 
     init {
-        if (id == R.id.google_register) {
-            iconGoogle = ContextCompat.getDrawable(context, R.drawable.google) as Drawable
+        if(id == R.id.play){
+            iconGoogle = ContextCompat.getDrawable(context, R.drawable.baseline_play_circle_outline_24) as Drawable
             val startMargin = 30
             val layerDrawable = createDrawableWithMargin(iconGoogle, startMargin, 0, 0, 0)
             setDrawable(layerDrawable)
+        } else {
+            setDrawable()
+
         }
 
         txtColor = if(id == R.id.login) {
             ContextCompat.getColor(context, R.color.white)
         } else if (id == R.id.register_register) {
             ContextCompat.getColor(context, R.color.white)
-        } else {
+        }else if (id == R.id.play) {
+            ContextCompat.getColor(context, R.color.white)
+        }else {
             ContextCompat.getColor(context, R.color.blue_4)
         }
         enabledBackground = if(id == R.id.login) {
-            ContextCompat.getDrawable(context, R.drawable.background_stroke_white) as Drawable
+            ContextCompat.getDrawable(context, R.drawable.backgroud_blue) as Drawable
         }else if (id == R.id.register_register) {
-            ContextCompat.getDrawable(context, R.drawable.background_stroke_white) as Drawable
-        } else {
+            ContextCompat.getDrawable(context, R.drawable.backgroud_blue) as Drawable
+        } else if (id == R.id.play) {
+            ContextCompat.getDrawable(context, R.drawable.backgroud_blue) as Drawable
+        }
+        else {
             ContextCompat.getDrawable(context, R.drawable.background_button_white) as Drawable
         }
     }
@@ -51,12 +59,13 @@ class LoginButton : AppCompatButton {
         textSize = 12f
         gravity = Gravity.CENTER
 
-        text = if (id == R.id.login) {
-            context.getString(R.string.login)
-        } else if (id == R.id.register_register) {
-            ContextCompat.getString(context, R.string.register)
-        } else {
-            context.getString(R.string.google)
+        when(id){
+            R.id.login -> {
+                text = context.getString(R.string.login)
+            }
+            R.id.register_register -> {
+                text = context.getString(R.string.register)
+            }
         }
     }
 
