@@ -5,7 +5,8 @@
     android:layout_marginTop="20dp"
     app:cardElevation="10dp"
     android:layout_marginBottom="25dp"
-    android:layout_marginStart="32dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="20dp"
     android:elevation="10dp">
@@ -24,6 +25,7 @@
             android:layout_marginStart="10dp"
             >
             <ImageView
+                android:id="@+id/img_lib"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/image"
@@ -38,6 +40,7 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/judul_lib"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alfabet"
@@ -45,6 +48,7 @@
                 android:textSize="15sp"
                 />
             <TextView
+                android:id="@+id/jumlah_lib"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="26 Alfabet"
@@ -53,16 +57,6 @@
                 />
 
         </LinearLayout>
-
-        <Button
-            android:layout_width="70dp"
-            android:textSize="10dp"
-            android:layout_height="40dp"
-            android:text="lihat"
-            android:layout_marginStart="60dp"
-            android:layout_gravity="center"
-            />
-
     </LinearLayout>
 
         

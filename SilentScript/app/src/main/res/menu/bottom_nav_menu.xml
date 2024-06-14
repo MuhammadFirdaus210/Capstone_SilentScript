@@ -8,7 +8,7 @@
 
     <item
         android:enabled="true"
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_library"
         android:icon="@drawable/baseline_assignment_24"
         android:title="Library" />
     <item

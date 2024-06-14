@@ -6,7 +6,7 @@
     android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notifications.DetailActivityVideo">
+    tools:context=".ui.library.DetailActivityVideo">
 
     <androidx.cardview.widget.CardView
         android:layout_width="300dp"
