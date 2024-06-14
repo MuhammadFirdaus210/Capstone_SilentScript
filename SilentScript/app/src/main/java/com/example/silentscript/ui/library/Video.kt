@@ -1,4 +1,4 @@
-package com.example.silentscript.ui.notifications
+package com.example.silentscript.ui.library
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

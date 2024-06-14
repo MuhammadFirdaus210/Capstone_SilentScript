@@ -162,19 +162,6 @@ class LoginInput : AppCompatEditText {
 //                        }
 //                    }
             }
-
-            R.id.search -> {
-                search = ContextCompat.getDrawable(context, R.drawable.ic_seacrh) as Drawable
-                inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                compoundDrawablePadding = 16
-
-                setHint(R.string.search)
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    setAutofillHints(AUTOFILL_HINT_PASSWORD)
-                }
-                setDrawable(search)
-                passwordEditText = this
-            }
         }
     }
 

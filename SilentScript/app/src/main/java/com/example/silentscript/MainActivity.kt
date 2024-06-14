@@ -2,9 +2,7 @@ package com.example.silentscript
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
 import android.widget.TextView
-import androidx.annotation.NonNull
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -12,8 +10,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.silentscript.databinding.ActivityMainBinding
-import com.example.silentscript.ui.home.DetailAbjadActivity
-import com.google.android.material.navigation.NavigationBarView
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -51,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home, R.id.navigation_profile, R.id.navigation_library
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

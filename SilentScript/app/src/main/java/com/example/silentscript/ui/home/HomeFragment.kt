@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.silentscript.GameActivity
+import com.example.silentscript.ui.game.GameActivity
 import com.example.silentscript.R
 import com.example.silentscript.databinding.FragmentHomeBinding
+import com.example.silentscript.ui.library.huruf.HurufActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class HomeFragment : Fragment() {
@@ -42,7 +43,7 @@ class HomeFragment : Fragment() {
 
     private fun onclick() {
         binding.imgAbjad.setOnClickListener {
-            val intent = Intent(activity, AbjadActivity::class.java)
+            val intent = Intent(activity, HurufActivity::class.java)
             startActivity(intent)
         }
         binding.play.setOnClickListener {

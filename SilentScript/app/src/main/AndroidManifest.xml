@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,16 +20,31 @@
         android:theme="@style/Base.Theme.SilentScript"
         tools:targetApi="31">
         <activity
-            android:name=".GameActivity"
+            android:name=".ui.game.gamestart.StartGameActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.notifications.DetailActivityVideo"
+            android:name=".ui.game.GameDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.home.DetailAbjadActivity"
+            android:name=".ui.library.kata.DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.home.AbjadActivity"
+            android:name=".ui.library.kata.DetailKataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.library.kata.KataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.game.GameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.library.DetailActivityVideo"
+            android:exported="false" />
+        <activity
+            android:name=".ui.library.huruf.DetailAbjadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.library.huruf.HurufActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -44,6 +66,16 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-    </application>
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.silentscript.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
 </manifest>

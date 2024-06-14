@@ -1,14 +1,10 @@
-package com.example.silentscript.ui.notifications
+package com.example.silentscript.ui.library
 
 import android.os.Bundle
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.silentscript.R
 import com.example.silentscript.databinding.ActivityDetailVideoBinding
-import com.example.silentscript.ui.home.Abjad
 
 class DetailActivityVideo : AppCompatActivity() {
 

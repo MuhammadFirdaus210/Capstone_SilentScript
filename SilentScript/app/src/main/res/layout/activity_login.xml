@@ -45,6 +45,31 @@
             android:layout_marginEnd="20dp"
           />
 
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="56dp"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:background="@drawable/button_backgroud"-->
+<!--            app:startIconDrawable="@drawable/baseline_email"-->
+<!--            app:startIconTint="@color/black"-->
+<!--            app:endIconMode="password_toggle"-->
+<!--            app:boxStrokeColor="@color/blue_4"-->
+<!--            android:paddingHorizontal="4dp"-->
+<!--            android:paddingVertical="4dp"-->
+<!--            app:endIconTint="@color/black">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/button_background_white"-->
+<!--                android:ems="10"-->
+<!--                android:paddingStart="44sp"-->
+<!--                tools:ignore="RtlSymmetry,SpeakableTextPresentCheck"-->
+<!--                />-->
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
         <com.example.silentscript.customeview.login.LoginInput
             android:id="@+id/password"
             android:layout_marginTop="30dp"
