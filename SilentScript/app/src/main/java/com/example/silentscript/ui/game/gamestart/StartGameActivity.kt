@@ -2,26 +2,44 @@ package com.example.silentscript.ui.game.gamestart
 
 import CameraAndFileHandler
 import GameStartViewModel
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.example.mystoryapp.data.preference.UserPreferences
+import com.example.silentscript.R
 import com.example.silentscript.databinding.ActivityStartGameBinding
+import com.example.silentscript.ui.game.GameActivity
+import com.example.silentscript.ui.game.GameDetailActivity
 import com.example.silentscript.ui.game.gamestart.ImageFileUtils.compressImageFile
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 import java.io.IOException
 import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 class StartGameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStartGameBinding
@@ -33,12 +51,15 @@ class StartGameActivity : AppCompatActivity() {
     private lateinit var gameStartViewModel: GameStartViewModel
     private lateinit var uid : String
 
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "prefs")
+
     companion object {
         private const val TAG = "StartGameActivity"
         private const val KEY_IMAGE_URI = "imageUri"
         private const val KEY_IMAGE_FILE_PATH = "imageFilePath"
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStartGameBinding.inflate(layoutInflater)
@@ -47,6 +68,12 @@ class StartGameActivity : AppCompatActivity() {
 
         val levelId: Int = intent.getIntExtra("levelId", 0)
         binding.id.text = levelId.toString()
+
+        binding.back.setOnClickListener(){
+           finish()
+        }
+
+        cameraExecutor = Executors.newSingleThreadExecutor()
 
         cameraAndFileHandler = CameraAndFileHandler(this)
         val viewModelFactory = GameStartViewModelFactory(cameraAndFileHandler)
@@ -97,14 +124,17 @@ class StartGameActivity : AppCompatActivity() {
                 val inputStream = contentResolver.openInputStream(uri)
                 val requestFile = inputStream?.readBytes()?.toRequestBody("image/jpg".toMediaTypeOrNull())
                 val imagePart = MultipartBody.Part.createFormData("image", "image.jpg", requestFile!!)
-                val token = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRmOGIxNTFiY2Q5MGQ1YjMwMjBlNTNhMzYyZTRiMzA3NTYzMzdhNjEiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiaG9yZSIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9zbGllbnRzY3JpcHQiLCJhdWQiOiJzbGllbnRzY3JpcHQiLCJhdXRoX3RpbWUiOjE3MTgzODM5OTQsInVzZXJfaWQiOiJ2dVFyaGlnQVBNYVZ4enRhdmFmQmM2bnAzVkozIiwic3ViIjoidnVRcmhpZ0FQTWFWeHp0YXZhZkJjNm5wM1ZKMyIsImlhdCI6MTcxODM4Mzk5NCwiZXhwIjoxNzE4Mzg3NTk0LCJlbWFpbCI6ImhvcmVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImhvcmVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.gn08kF62NZP0098wUhbiRPVrioNhuSGvZi7KT_U6y-gkEfnPBEUUYjLbmEVdKxiISKnISld4DaUtqDDzTUjr9VRaVcrKQBN87EojPa56dFrS4A8AcZDVH-CiLELPtUYUQAS41vgB4BcpLNXtwyj4CsoDg7WtcDfuBnwz2mego9TLT30u8z4sbT05CIgLW2w9VEjA83Xdsc6-qOGwvoyEMPP_1lWTMt0v-3yRJbV_RZli4DpQK191XiYWX3BJE3gnbX_0C1o6kgkhfr7K7Ho2lWRxATsvHdAZN0nTlqj_oSuICKSI89Av5SypU96jHRzgNii8EhUUh11_-_hJX34USQ"
-                val level = levelId.toString()
 
-                try {
-                    gameStartViewModel.postGame(token, imagePart, level)
-                } catch (e: Exception) {
+                val userPreferences = UserPreferences.getInstance(dataStore)
+                lifecycleScope.launch {
+                    val token = userPreferences.getToken().first()
+                    val level = levelId.toString()
 
-                    Log.e(TAG, "Exception when calling postGame", e)
+                    try {
+                        gameStartViewModel.postGame(token, imagePart, level)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Exception when calling postGame", e)
+                    }
                 }
             } ?: run {
                 Toast.makeText(this, "Image URI is null. Please capture or select an image first.", Toast.LENGTH_SHORT).show()
@@ -119,13 +149,40 @@ class StartGameActivity : AppCompatActivity() {
 
         gameStartViewModel.message.observe(this, Observer { message ->
             Log.d(TAG, "Message LiveData updated with: $message")
-            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
         })
 
         gameStartViewModel.uploadResponse.observe(this, Observer { response ->
             Log.d(TAG, "UploadResponse LiveData updated with: ${response.message}")
-            Toast.makeText(this, response.message, Toast.LENGTH_LONG).show()
+            val dialogView = LayoutInflater.from(this).inflate(R.layout.dialogalert, null)
+            val textView = dialogView.findViewById<TextView>(R.id.dialog_text)
+            val btnNext = dialogView.findViewById<Button>(R.id.btn_next)
+            val btnBack = dialogView.findViewById<Button>(R.id.btn_back)
+            textView.text = response.message
+            AlertDialog.Builder(this)
+                .setView(dialogView)
+                .setPositiveButton(R.string.lagi, null)
+                .show()
+
+            // Tampilkan atau sembunyikan tombol "Next" berdasarkan pesan respons
+            if (response.message == "Selamat kamu mendapatkan +100") {
+                btnNext.visibility = View.VISIBLE
+            } else {
+                btnNext.visibility = View.GONE
+            }
+
+            btnNext.setOnClickListener {
+                val nextLevel = levelId + 1
+                val intent = Intent(this, GameDetailActivity::class.java)
+                intent.putExtra("levelId", nextLevel)
+                startActivity(intent)
+            }
+
+            btnBack.setOnClickListener {
+                finish()
+            }
         })
+
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

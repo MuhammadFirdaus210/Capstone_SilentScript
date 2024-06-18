@@ -20,6 +20,7 @@ class KataAdapter(var kataList: List<KataResponse>) : RecyclerView.Adapter<KataA
                 val kataItem = kataList[adapterPosition]
                 val intent = Intent(view.context, DetailActivity::class.java)
                 intent.putExtra("kata", kataItem.penjelasan)
+                intent.putExtra("video", kataItem.video)
                 view.context.startActivity(intent)
             }
         }
@@ -33,6 +34,7 @@ class KataAdapter(var kataList: List<KataResponse>) : RecyclerView.Adapter<KataA
     override fun onBindViewHolder(holder: KataViewHolder, position: Int) {
         val kataItem = kataList[position]
         holder.judulTextView.text = kataItem.penjelasan
+
     }
 
     override fun getItemCount() = kataList.size

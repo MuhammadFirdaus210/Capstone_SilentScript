@@ -39,44 +39,5 @@
     <string name="game">Game BISINDO</string>
     <string name="abjad">abjad</string>
     <string name="Ayo">Ayo asah kemampuan mu..</string>
-    <string-array name="data_video">
-        <item>Saya sudah Makan</item>
-        <item>Saya sudah Minum</item>
-        <item>Saya sudah Tidur</item>
-        <item>Saya sudah Mandi</item>
-        <item>Saya sudah Belajar</item>
-        <item>Saya sudah Bermain</item>
-        <item>Saya sudah Membaca</item>
-        <item>Saya sudah Menulis</item>
-    </string-array>
-
-    <string-array name="data_abjad">
-        <item>A</item>
-        <item>B</item>
-        <item>C</item>
-        <item>D</item>
-        <item>E</item>
-        <item>F</item>
-        <item>G</item>
-        <item>H</item>
-        <item>I</item>
-        <item>J</item>
-        <item>K</item>
-        <item>L</item>
-        <item>M</item>
-        <item>N</item>
-        <item>O</item>
-        <item>O</item>
-        <item>P</item>
-        <item>Q</item>
-        <item>R</item>
-        <item>S</item>
-        <item>T</item>
-        <item>U</item>
-        <item>V</item>
-        <item>W</item>
-        <item>X</item>
-        <item>Y</item>
-        <item>Z</item>
-    </string-array>
+    <string name="lagi">Lagi</string>
 </resources>

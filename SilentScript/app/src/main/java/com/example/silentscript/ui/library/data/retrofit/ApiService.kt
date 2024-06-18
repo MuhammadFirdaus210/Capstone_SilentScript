@@ -4,7 +4,9 @@ import com.example.silentscript.ui.library.data.response.GameResponse
 import com.example.silentscript.ui.library.data.response.HurufResponse
 import com.example.silentscript.ui.library.data.response.LibraryResponse
 import com.example.silentscript.ui.library.data.response.KataResponse
+import com.example.silentscript.ui.library.data.response.RegisterResponse
 import com.example.silentscript.ui.library.data.response.StatusResponse
+import com.example.silentscript.ui.library.data.response.UserResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -23,6 +25,21 @@ interface ApiService {
 
     @GET("levels")
     fun getGame(): Call<List<GameResponse>>
+
+    @GET("users/profile/{uid}")
+    fun getUserDetails(
+        @Header("Authorization") token: String,
+        @Path("uid") uid: String
+    ): Call<UserResponse>
+
+    @FormUrlEncoded
+    @POST("users/register")
+    fun register(
+        @Field("username") username: String,
+        @Field("email") email: String,
+        @Field("password") password: String,
+        @Field("password_confirmation") passwordConfirmation: String
+    ): Call<RegisterResponse>
 
     @Multipart
     @POST("levels/{levelsId}/prediksi")

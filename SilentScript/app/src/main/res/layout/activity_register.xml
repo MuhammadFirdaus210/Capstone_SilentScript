@@ -99,5 +99,32 @@
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue_4"
+                android:textSize="12sp"
+                android:fontFamily="@font/poplight"
+                android:text="@string/dont"
+                />
+
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/popmed"
+                android:textSize="12sp"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/blue_4"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                />
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

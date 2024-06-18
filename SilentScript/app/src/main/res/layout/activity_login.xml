@@ -31,59 +31,50 @@
             android:src="@drawable/image"
             />
 
-
-        <com.example.silentscript.customeview.login.LoginInput
-            android:id="@+id/email"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:textSize="14sp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_height="48dp"
-            android:layout_gravity="start"
+            android:layout_height="55dp"
+            android:layout_marginTop="30dp"
             android:layout_marginStart="20dp"
-            android:background="@drawable/button_backgroud"
+            android:layout_gravity="start"
             android:layout_marginEnd="20dp"
-          />
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:alpha="1"
+            tools:alpha="100"
+            app:startIconDrawable="@drawable/baseline_email"
+            >
 
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="56dp"-->
-<!--            android:layout_marginStart="20dp"-->
-<!--            android:layout_marginEnd="20dp"-->
-<!--            android:background="@drawable/button_backgroud"-->
-<!--            app:startIconDrawable="@drawable/baseline_email"-->
-<!--            app:startIconTint="@color/black"-->
-<!--            app:endIconMode="password_toggle"-->
-<!--            app:boxStrokeColor="@color/blue_4"-->
-<!--            android:paddingHorizontal="4dp"-->
-<!--            android:paddingVertical="4dp"-->
-<!--            app:endIconTint="@color/black">-->
+            <com.example.silentscript.customeview.login.LoginInput
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_backgroud"
+                android:textSize="14sp"
+                app:passwordToggleEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-<!--            <com.google.android.material.textfield.TextInputEditText-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@drawable/button_background_white"-->
-<!--                android:ems="10"-->
-<!--                android:paddingStart="44sp"-->
-<!--                tools:ignore="RtlSymmetry,SpeakableTextPresentCheck"-->
-<!--                />-->
-
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_gravity="start"
+        android:layout_marginEnd="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:alpha="1"
+        app:endIconMode="password_toggle"
+        tools:alpha="100"
+        app:startIconDrawable="@drawable/baseline_lock"
+        >
 
         <com.example.silentscript.customeview.login.LoginInput
             android:id="@+id/password"
-            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
-            android:textSize="14sp"
-            android:paddingStart="10dp"
-            app:passwordToggleEnabled="true"
-            android:paddingEnd="10dp"
-            android:layout_height="48dp"
-            android:layout_gravity="start"
-            android:layout_marginStart="20dp"
+            android:layout_height="match_parent"
             android:background="@drawable/button_backgroud"
-            android:layout_marginEnd="20dp"
-            />
+            android:textSize="14sp"
+            app:passwordToggleEnabled="true" />
+    </com.google.android.material.textfield.TextInputLayout>
 
        <LinearLayout
            android:layout_width="match_parent"
