@@ -20,9 +20,6 @@ class GameDetailActivity : AppCompatActivity() {
 
         binding.gameId.text = levelId.toString()
 
-        val level :String = intent.getStringExtra("level")!!
-        binding.gameLevel.text = level
-
         binding.back.setOnClickListener {
             finish()
         }
@@ -31,9 +28,7 @@ class GameDetailActivity : AppCompatActivity() {
             val intent = Intent(this, StartGameActivity::class.java)
             Log.d("GameDetailActivity", "levelId: $levelId")
             intent.putExtra("levelId", levelId) // Pass the levelId to StartGameActivity
-            intent.putExtra("level", level)
             startActivity(intent)
         }
-
     }
 }

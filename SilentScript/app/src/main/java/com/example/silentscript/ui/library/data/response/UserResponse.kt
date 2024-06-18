@@ -2,7 +2,10 @@ package com.example.silentscript.ui.library.data.response
 
 import com.google.gson.annotations.SerializedName
 
-data class ProfileResponse(
+data class UserResponse(
+
+	@field:SerializedName("badge")
+	val badge: String,
 
 	@field:SerializedName("data")
 	val data: Data,
@@ -16,20 +19,17 @@ data class Data(
 	@field:SerializedName("uid")
 	val uid: String,
 
-	@field:SerializedName("score")
-	val score: Int,
-
 	@field:SerializedName("createdAt")
 	val createdAt: CreatedAt,
 
-	@field:SerializedName("displayName")
-	val displayName: String,
-
-	@field:SerializedName("phone_number")
-	val phoneNumber: String,
-
 	@field:SerializedName("email")
-	val email: String
+	val email: String,
+
+	@field:SerializedName("username")
+	val username: String,
+
+	@field:SerializedName("points")
+	val points: Int
 )
 
 data class CreatedAt(

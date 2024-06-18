@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/dialog_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/dialog_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dialog Text"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:layout_marginTop="16dp" />
+
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kembali"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/backgroud_blue"
+            android:textColor="@color/white"
+            android:fontFamily="@font/popmed"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selanjutnya"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:background="@drawable/backgroud_blue"
+            android:textColor="@color/white"
+            android:fontFamily="@font/popmed"
+            />
+
+    </LinearLayout>
+</LinearLayout>

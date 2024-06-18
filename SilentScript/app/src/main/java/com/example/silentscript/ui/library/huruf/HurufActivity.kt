@@ -31,6 +31,9 @@ class HurufActivity : AppCompatActivity() {
 
         binding.rvAbjad.layoutManager = GridLayoutManager(this, 3)
 
+        binding.back.setOnClickListener(){
+            finish()
+        }
         // Fetch the library data
         viewModel.fetchLibrary(slug)
 

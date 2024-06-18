@@ -1,6 +1,7 @@
 package com.example.silentscript
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -8,8 +9,15 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.lifecycleScope
+import com.example.mystoryapp.data.preference.UserPreferences
 import com.example.silentscript.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -20,8 +28,9 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var btnLogin: Button
     private lateinit var progressDialog: ProgressDialog
 
-
     private var firebaseAuth = FirebaseAuth.getInstance()
+
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "prefs")
 
     override fun onStart() {
         super.onStart()
@@ -29,10 +38,13 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
+
+        showToken()
 
         email = findViewById(R.id.email)
         password = findViewById(R.id.password)
@@ -52,7 +64,6 @@ class LoginActivity : AppCompatActivity() {
         btnRegis.setOnClickListener{
             startActivity(Intent(this, RegisterActivity::class.java))
         }
-
     }
     private fun processLogin(){
         val email = email.text.toString()
@@ -60,7 +71,17 @@ class LoginActivity : AppCompatActivity() {
 
         progressDialog.show()
         firebaseAuth.signInWithEmailAndPassword(email, password)
-            .addOnSuccessListener {
+            .addOnSuccessListener { authResult ->
+                val firebaseUser = authResult.user
+                firebaseUser?.getIdToken(true)?.addOnSuccessListener { idTokenResult ->
+                    val token = idTokenResult.token
+                    // Here you have the token, you can now store it
+                    // For example, using your UserPreferences class
+                    val userPreferences = UserPreferences.getInstance(dataStore)
+                    lifecycleScope.launch {
+                        userPreferences.saveToken(token!!)
+                    }
+                }
                 startActivity(Intent(this, MainActivity::class.java))
             }
             .addOnFailureListener { error ->
@@ -69,5 +90,12 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener{
                 progressDialog.dismiss()
             }
+    }
+    private fun showToken() {
+        val userPreferences = UserPreferences.getInstance(dataStore)
+        lifecycleScope.launch {
+            val uid = userPreferences.getUid().first()
+            Toast.makeText(this@LoginActivity, "UID: $uid", Toast.LENGTH_LONG).show()
+        }
     }
 }

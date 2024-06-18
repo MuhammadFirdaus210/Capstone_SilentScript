@@ -5,46 +5,68 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.library.DetailActivityVideo">
+    >
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/baseline_keyboard_backspace_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="560dp"
+        android:id="@+id/cardView6"
+        android:layout_width="270dp"
+        android:layout_height="480dp"
         android:elevation="10dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.358">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@color/blue_4"
-                android:elevation="10dp"
-                />
-            <ImageView
-                android:id="@+id/img_kata"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:src="@drawable/image"
-                android:scaleType="centerCrop"
-                />
-            <TextView
-                android:id="@+id/judul_kata"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@color/blue_4"
-                android:text="@string/judul"
-                android:fontFamily="@font/popmed"
-                android:textColor="@color/white"
-                android:gravity="center"
-                />
-        </LinearLayout>
+                <com.google.android.exoplayer2.ui.PlayerView
+                    android:id="@+id/videoView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    app:layout_constraintBottom_toTopOf="@+id/judul_kata"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:use_controller="false"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/playButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/baseline_play_circle_outline_24_blue"
+                    android:layout_gravity="center"
+                    />
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/judul_kata"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/background_stroke_white"
+        android:fontFamily="@font/popmed"
+        android:gravity="center"
+        android:text="@string/judul"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView6"
+        app:layout_constraintVertical_bias="0.333" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

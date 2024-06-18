@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.library.huruf.DetailAbjadActivity">
 
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/baseline_keyboard_backspace_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="320dp"
         android:layout_height="650dp"
@@ -35,9 +46,12 @@
                 android:textSize="70sp" />
 
             <ImageView
+                android:scaleType="centerCrop"
+                android:id="@+id/image_huruf"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:src="@drawable/image" />
+                android:src="@drawable/image"
+                />
 
             <TextView
                 android:id="@+id/bottom"
