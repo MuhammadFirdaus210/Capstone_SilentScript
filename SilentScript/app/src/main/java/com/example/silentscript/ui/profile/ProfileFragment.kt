@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -16,28 +17,37 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.mystoryapp.data.preference.UserPreferences
 import com.example.silentscript.LoginActivity
+import com.example.silentscript.R
 import com.example.silentscript.databinding.FragmentHomeBinding
+import com.example.silentscript.databinding.FragmentProfileBinding
 import com.example.silentscript.ui.game.GameActivity
 import com.example.silentscript.ui.library.huruf.HurufActivity
+import com.example.silentscript.ui.profile.ProfileViewModel
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
-class HomeFragment : Fragment() {
-    private var _binding: FragmentHomeBinding? = null
+class ProfileFragment : Fragment() {
+    private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var profileViewModel: ProfileViewModel
+    private lateinit var btnLogout: Button
 
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "prefs")
     private val GAME_REQUEST_CODE = 1
+
+
+    private var firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val userPreferences = UserPreferences.getInstance(requireContext().dataStore)
@@ -48,29 +58,17 @@ class HomeFragment : Fragment() {
                 val intent = Intent(activity, LoginActivity::class.java)
                 startActivity(intent)
             } else {
-                homeViewModel.getUserDetails(token, uid)
+                profileViewModel.getUserDetails(token, uid)
             }
         }
 
-        homeViewModel.userResponse.observe(viewLifecycleOwner, Observer { userResponse ->
+        profileViewModel.userResponse.observe(viewLifecycleOwner, Observer { userResponse ->
             // Update UI with userResponse
             binding.username.text = userResponse?.data?.username
-            binding.badge.text = userResponse?.badge
-            binding.score.text = userResponse?.data?.points.toString()
+            binding.email.text = userResponse?.data?.email
         })
 
-        onclick()
         return root
-    }
-    private fun onclick() {
-        binding.imgAbjad.setOnClickListener {
-            val intent = Intent(activity, HurufActivity::class.java)
-            startActivity(intent)
-        }
-        binding.play.setOnClickListener {
-            val intent = Intent(activity, GameActivity::class.java)
-            startActivityForResult(intent, GAME_REQUEST_CODE)
-        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -82,9 +80,26 @@ class HomeFragment : Fragment() {
                 val token = userPreferences.getToken().first()
                 val uid = userPreferences.getUid().first()
                 if (token.isNotEmpty()) {
-                    homeViewModel.getUserDetails(token, uid)
+                    profileViewModel.getUserDetails(token, uid)
                 }
             }
+        }
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        btnLogout = view.findViewById(R.id.logout)
+
+        // Use the button or set up listeners here
+        btnLogout.setOnClickListener {
+            firebaseAuth.signOut()
+            val userPreferences = UserPreferences.getInstance(requireContext().dataStore)
+            MainScope().launch {
+                userPreferences.deleteUid()
+                userPreferences.deleteToken()
+            }
+            startActivity(Intent(activity, LoginActivity::class.java))
+            requireActivity().finish()
         }
     }
 

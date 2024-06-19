@@ -44,8 +44,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
 
-        showToken()
-
         email = findViewById(R.id.email)
         password = findViewById(R.id.password)
         btnLogin = findViewById(R.id.login)
@@ -73,16 +71,18 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener { authResult ->
                 val firebaseUser = authResult.user
+                val uid = firebaseUser?.uid
                 firebaseUser?.getIdToken(true)?.addOnSuccessListener { idTokenResult ->
                     val token = idTokenResult.token
-                    // Here you have the token, you can now store it
-                    // For example, using your UserPreferences class
                     val userPreferences = UserPreferences.getInstance(dataStore)
                     lifecycleScope.launch {
+                        userPreferences.deleteUid() // Delete old uid
                         userPreferences.saveToken(token!!)
+                        uid?.let { userPreferences.saveUid(it) }
+                        // Start MainActivity after uid and token are saved
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                     }
                 }
-                startActivity(Intent(this, MainActivity::class.java))
             }
             .addOnFailureListener { error ->
                 Toast.makeText(this, error.localizedMessage, Toast.LENGTH_SHORT).show()
@@ -90,12 +90,5 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener{
                 progressDialog.dismiss()
             }
-    }
-    private fun showToken() {
-        val userPreferences = UserPreferences.getInstance(dataStore)
-        lifecycleScope.launch {
-            val uid = userPreferences.getUid().first()
-            Toast.makeText(this@LoginActivity, "UID: $uid", Toast.LENGTH_LONG).show()
-        }
     }
 }
