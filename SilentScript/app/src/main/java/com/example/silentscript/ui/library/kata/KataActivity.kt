@@ -26,6 +26,11 @@ class KataActivity : AppCompatActivity() {
         // Initialize the RecyclerView
         binding.rvKata.layoutManager = LinearLayoutManager(this)
 
+        binding.back.setOnClickListener(){
+            finish()
+        }
+
+
         // Fetch the library data
         viewModel.fetchLibrary(slug)
 
