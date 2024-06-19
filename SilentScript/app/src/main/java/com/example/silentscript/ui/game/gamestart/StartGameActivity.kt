@@ -216,13 +216,13 @@ class StartGameActivity : AppCompatActivity() {
                 imageBitmap?.let {
                     binding.previewView.setImageBitmap(it)
                 } ?: run {
-                    Toast.makeText(this, "Failed to decode image", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Foto Terlebih Dahulu", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Image file does not exist", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Foto TIdak Ada", Toast.LENGTH_SHORT).show()
             }
         } ?: run {
-            Toast.makeText(this, "Failed to get image file", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Gagal mendapatkan FIle", Toast.LENGTH_SHORT).show()
         }
     }
 
