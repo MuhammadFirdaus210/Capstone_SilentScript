@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_library" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.silentscript.ui.ProfileFragment"
+        android:name="com.example.silentscript.ui.home.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

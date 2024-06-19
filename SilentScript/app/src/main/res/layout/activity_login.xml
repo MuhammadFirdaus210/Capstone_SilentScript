@@ -76,23 +76,6 @@
             app:passwordToggleEnabled="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:gravity="end"
-           android:paddingEnd="20dp"
-           android:orientation="horizontal">
-
-           <CheckBox
-               android:id="@+id/rememberMeCheckbox"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textColor="@color/blue_4"
-               android:fontFamily="@font/poplight"
-               android:text="Remember Me"
-               android:checked="true"
-               style="@style/CheckboxStyle"/>
-       </LinearLayout>
 
         <com.example.silentscript.customeview.login.LoginButton
             android:id="@+id/login"
@@ -103,7 +86,7 @@
             android:fontFamily="@font/popmed"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="16dp" />
 
         <LinearLayout

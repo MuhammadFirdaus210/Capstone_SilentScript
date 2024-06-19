@@ -29,7 +29,6 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
             preferences[TOKEN] ?: ""
         }
     }
-
     suspend fun saveToken(token: String) {
         dataStore.edit { preferences ->
             preferences[TOKEN] = token
@@ -42,12 +41,17 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         }
     }
 
+    suspend fun deleteUid() {
+        dataStore.edit { preferences ->
+            preferences.remove(UID)
+        }
+    }
+
     fun getUid(): Flow<String> {
         return dataStore.data.map { preferences ->
             preferences[UID] ?: ""
         }
     }
-
     suspend fun saveUid(uid: String) {
         dataStore.edit { preferences ->
             preferences[UID] = uid

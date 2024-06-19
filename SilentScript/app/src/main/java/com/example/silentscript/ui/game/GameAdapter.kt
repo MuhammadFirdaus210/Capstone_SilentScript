@@ -19,9 +19,9 @@ class GameAdapter(private var gameList: List<GameResponse>) : RecyclerView.Adapt
             // Add OnClickListener to navigate to GameDetailActivity
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, GameDetailActivity::class.java)
-                Log.d("GameAdapter", "levelId: ${game.level}")
                 intent.putExtra("levelId", game.levelId)
                 intent.putExtra("level", game.level)
+                intent.putExtra("image", game.image)
                 itemView.context.startActivity(intent)
             }
         }

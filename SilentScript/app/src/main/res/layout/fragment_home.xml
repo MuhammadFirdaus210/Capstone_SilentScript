@@ -163,7 +163,6 @@
         android:text="@string/Ayo"
         android:textColor="@color/blue_4"
         android:textSize="15sp"
-
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.137"
@@ -192,10 +191,12 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:background="@color/white"
                 android:id="@+id/img_video"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/image"
+                android:scaleType="fitXY"
+                android:src="@drawable/book"
                 app:layout_constraintBottom_toTopOf="@+id/textView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -208,7 +209,7 @@
                 android:background="@color/blue_4"
                 android:fontFamily="@font/popmed"
                 android:gravity="center"
-                android:text="@string/sapa"
+                android:text="@string/makanan"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent" />
@@ -237,7 +238,9 @@
                     <ImageButton
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:src="@drawable/image"
+                        android:src="@drawable/book"
+                        android:scaleType="fitXY"
+                        android:background="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
