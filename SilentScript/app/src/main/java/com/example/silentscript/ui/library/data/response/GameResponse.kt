@@ -8,5 +8,8 @@ data class GameResponse(
 	val level: String,
 
 	@field:SerializedName("levelId")
-	val levelId: Int
+	val levelId: Int,
+
+	@field:SerializedName("image")
+	val image: String
 )

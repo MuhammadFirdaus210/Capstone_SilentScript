@@ -29,16 +29,10 @@
             android:name=".ui.library.kata.DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.library.kata.DetailKataActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.library.kata.KataActivity"
             android:exported="false" />
         <activity
             android:name=".ui.game.GameActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.library.DetailActivityVideo"
             android:exported="false" />
         <activity
             android:name=".ui.library.huruf.DetailAbjadActivity"
@@ -47,7 +41,7 @@
             android:name=".ui.library.huruf.HurufActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -64,7 +58,7 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:exported="false" />
 
         <provider

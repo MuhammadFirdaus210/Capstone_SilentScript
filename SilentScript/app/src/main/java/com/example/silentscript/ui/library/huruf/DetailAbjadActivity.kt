@@ -17,11 +17,10 @@ class DetailAbjadActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         val kata: String = intent.getStringExtra("name")!!
-        val id: String = intent.getStringExtra("id")!!
         val imageUri: String = intent.getStringExtra("image")!!
 
         binding.top.text = kata
-        binding.bottom.text = id
+        binding.bottom.text = kata
         binding.back.setOnClickListener(){
             finish()
         }

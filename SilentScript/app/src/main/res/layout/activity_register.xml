@@ -112,7 +112,7 @@
                 android:textColor="@color/blue_4"
                 android:textSize="12sp"
                 android:fontFamily="@font/poplight"
-                android:text="@string/dont"
+                android:text="@string/yes"
                 />
 
             <TextView

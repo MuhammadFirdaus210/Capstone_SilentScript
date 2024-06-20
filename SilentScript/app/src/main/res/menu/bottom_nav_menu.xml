@@ -10,7 +10,7 @@
         android:enabled="true"
         android:id="@+id/navigation_library"
         android:icon="@drawable/baseline_assignment_24"
-        android:title="Library" />
+        android:title="Kamus" />
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/baseline_account_circle_24"

@@ -70,6 +70,7 @@
                 android:textSize="20dp" />
 
             <ImageView
+                android:id="@+id/img_task"
                 android:layout_width="150dp"
                 android:layout_height="125dp"
                 android:layout_gravity="center"

@@ -1,5 +1,6 @@
 package com.example.silentscript.ui.game
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -34,12 +35,22 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.back.setOnClickListener {
-            finish()
+            finishGame()
         }
     }
     private fun setupRecyclerView() {
         adapter = GameAdapter(listOf())
         binding.rvGame.layoutManager = GridLayoutManager(this, 2)
         binding.rvGame.adapter = adapter
+    }
+
+    private fun finishGame() {
+        setResult(Activity.RESULT_OK)
+        finish()
+    }
+
+    override fun onBackPressed() {
+        finishGame()
+        super.onBackPressed()
     }
 }

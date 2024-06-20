@@ -17,7 +17,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -28,7 +27,6 @@ import androidx.lifecycle.lifecycleScope
 import com.example.mystoryapp.data.preference.UserPreferences
 import com.example.silentscript.R
 import com.example.silentscript.databinding.ActivityStartGameBinding
-import com.example.silentscript.ui.game.GameActivity
 import com.example.silentscript.ui.game.GameDetailActivity
 import com.example.silentscript.ui.game.gamestart.ImageFileUtils.compressImageFile
 import kotlinx.coroutines.flow.first
@@ -41,6 +39,7 @@ import java.io.IOException
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
+
 class StartGameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStartGameBinding
     private lateinit var cameraExecutor: ExecutorService
@@ -49,7 +48,7 @@ class StartGameActivity : AppCompatActivity() {
     private lateinit var progressDialog: ProgressDialog
     private lateinit var cameraAndFileHandler: CameraAndFileHandler
     private lateinit var gameStartViewModel: GameStartViewModel
-    private lateinit var uid : String
+
 
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "prefs")
 
@@ -67,7 +66,7 @@ class StartGameActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         val levelId: Int = intent.getIntExtra("levelId", 0)
-        binding.id.text = levelId.toString()
+
 
         binding.back.setOnClickListener(){
            finish()
@@ -172,17 +171,19 @@ class StartGameActivity : AppCompatActivity() {
 
             btnNext.setOnClickListener {
                 val nextLevel = levelId + 1
+                val abjad = (1..26).associateWith { it -> ('A' + it - 1).toString() }
+                val img = "https://storage.googleapis.com/silentscript/huruf-collection/${abjad[nextLevel]}.jpg"
                 val intent = Intent(this, GameDetailActivity::class.java)
                 intent.putExtra("levelId", nextLevel)
+                intent.putExtra("image", img)
                 startActivity(intent)
+                Log.d("StartGameActivity", "Image URL passed to GameDetailActivity: $img")
             }
 
             btnBack.setOnClickListener {
                 finish()
             }
         })
-
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -215,13 +216,13 @@ class StartGameActivity : AppCompatActivity() {
                 imageBitmap?.let {
                     binding.previewView.setImageBitmap(it)
                 } ?: run {
-                    Toast.makeText(this, "Failed to decode image", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Foto Terlebih Dahulu", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Image file does not exist", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Foto TIdak Ada", Toast.LENGTH_SHORT).show()
             }
         } ?: run {
-            Toast.makeText(this, "Failed to get image file", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Gagal mendapatkan FIle", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -233,6 +234,9 @@ class StartGameActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        if (progressDialog.isShowing) {
+            progressDialog.dismiss()
+        }
         cameraExecutor.shutdown()
     }
 }

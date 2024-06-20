@@ -62,11 +62,6 @@ class RegisterActivity : AppCompatActivity() {
         registerViewModel.registerUser(username, email, password, passwordConfirmation ) { registerResponse ->
             progressDialog.dismiss()
             if (registerResponse != null) {
-                // Save uid to UserPreferences
-                val userPreferences = UserPreferences.getInstance(applicationContext.dataStore)
-                lifecycleScope.launch {
-                    userPreferences.saveUid(registerResponse.userId)
-                }
                 val intent = Intent(this, LoginActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
