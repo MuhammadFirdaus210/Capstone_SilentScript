@@ -57,6 +57,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.recyclerview:recyclerview:1.2.1")
     implementation ("androidx.cardview:cardview:1.0.0")
+    implementation ("hu.autsoft:krate:2.0.0")
 
     implementation ("com.google.firebase:firebase-auth-ktx")
     // Import the Firebase BoM
@@ -84,4 +85,5 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
 
     implementation ("com.google.android.exoplayer:exoplayer:2.15.1")
+
 }

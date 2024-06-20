@@ -18,10 +18,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.mystoryapp.data.preference.UserPreferences
 import com.example.silentscript.LoginActivity
 import com.example.silentscript.R
-import com.example.silentscript.databinding.FragmentHomeBinding
 import com.example.silentscript.databinding.FragmentProfileBinding
-import com.example.silentscript.ui.game.GameActivity
-import com.example.silentscript.ui.library.huruf.HurufActivity
 import com.example.silentscript.ui.profile.ProfileViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.MainScope
