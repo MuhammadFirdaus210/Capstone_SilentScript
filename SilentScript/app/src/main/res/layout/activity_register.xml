@@ -33,7 +33,7 @@
             android:layout_height="250dp"
             android:layout_gravity="center"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/image" />
+            android:src="@drawable/silent" />
 
         <com.example.silentscript.customeview.login.LoginInput
             android:id="@+id/username"
