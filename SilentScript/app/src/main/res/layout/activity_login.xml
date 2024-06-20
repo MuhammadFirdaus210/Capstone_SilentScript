@@ -14,68 +14,73 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:text="@string/welcome"
             android:textSize="20sp"
             android:textColor="@color/blue_4"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:fontFamily="@font/poppins"
+            android:gravity="center"
             />
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
             android:layout_height="250dp"
-            android:src="@drawable/image"
+            android:src="@drawable/silent"
             />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginStart="20dp"
             android:layout_gravity="start"
             android:layout_marginEnd="20dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:alpha="1"
-            tools:alpha="100"
             app:startIconDrawable="@drawable/baseline_email"
-            >
+            android:hint="Email">
 
             <com.example.silentscript.customeview.login.LoginInput
                 android:id="@+id/email"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/button_backgroud"
+                android:layout_height="wrap_content"
                 android:textSize="14sp"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="start"
+            android:layout_marginEnd="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/baseline_lock"
+            android:hint="Sandi">
+
+            <com.example.silentscript.customeview.login.LoginInput
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:inputType="textPassword"
                 app:passwordToggleEnabled="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_gravity="start"
-        android:layout_marginEnd="20dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:alpha="1"
-        app:endIconMode="password_toggle"
-        tools:alpha="100"
-        app:startIconDrawable="@drawable/baseline_lock"
-        >
-
-        <com.example.silentscript.customeview.login.LoginInput
-            android:id="@+id/password"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/button_backgroud"
-            android:textSize="14sp"
-            app:passwordToggleEnabled="true" />
-    </com.google.android.material.textfield.TextInputLayout>
-
+            android:layout_height="23dp"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:paddingEnd="20dp">
+        </LinearLayout>
 
         <com.example.silentscript.customeview.login.LoginButton
             android:id="@+id/login"
@@ -86,7 +91,7 @@
             android:fontFamily="@font/popmed"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp" />
 
         <LinearLayout

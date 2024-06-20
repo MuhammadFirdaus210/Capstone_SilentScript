@@ -16,7 +16,6 @@ import androidx.lifecycle.lifecycleScope
 import com.example.mystoryapp.data.preference.UserPreferences
 import com.example.silentscript.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
