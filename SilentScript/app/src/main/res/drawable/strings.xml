@@ -2,30 +2,32 @@
     <string name="app_name">SilentScript</string>
     <string name="description">Description App</string>
     <string name="desk_app">Description App abbaeybfbiuabdueabfbibaiiiaihfbeffaebuefbfaiiafbfbiiiooabavf aifbaieufvhefuf abfaieufeufvaib</string>
-    <string name="login">Masuk</string>
-    <string name="register">Daftar</string>
-    <string name="play">Main</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="play">Play</string>
     <string name="google">Login With Your Google Account</string>
-    <string name="welcome">SELAMAT DATANG</string>
-    <string name="username">Nama</string>
-    <string name="password">Sandi</string>
+    <string name="welcome">Welcome</string>
+    <string name="username">Username</string>
+    <string name="edit_profile">Ubah Profil</string>
+    <string name="password">Password</string>
     <string name="remember">Remember Me</string>
-    <string name="dont">Belum Punya Akun?</string>
-    <string name="yes">Sudah Punya Akun?</string>
+    <string name="dont">Don\'t Have Account?</string>
     <string name="start">Get Started</string>
+    <string name="Edit_name">Ubah nama Anda..</string>
+    <string name="Edit_email">Ubah email Anda..</string>
+    <string name="Edit_password">Ubah password Anda..</string>
+    <string name="UPDATE_PROFILE">SELESAI</string>
     <string name="or">OR</string>
     <string name="email">Email</string>
-    <string name="confirmation">Konfirmasi Sandi</string>
+    <string name="confirmation">Confirmation Password</string>
     <string name="error_password">Password At Least 8 Characters</string>
     <string name="error_email">Email is Not Required</string>
     <string name="error_confirmation">Email is Not Required</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
-    <string name="title_home">Rumah</string>
-    <string name="title_task">Task</string>
-    <string name="title_profile">Profil</string>
-    <string name="title_video">Video</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="search">Search abjad here</string>
+    <string name="description_splash">"Komunikasi Isyarat Tanpa Batas"</string>
+    <string name="add_button">Ganti gambar</string>
+    <string name="REPORT_BUG">Report Bug</string>
+    <string name="INFO">Other Information</string>
     <string name="LOGOUT">Keluar</string>
     <string name="image_welcome">image_welcome\n</string>
     <string name="title_menu1">DESKRIPSI</string>
@@ -35,12 +37,17 @@
     <string name="let_start">TUJUAN</string>
     <string name="description_menu3">Silent Script cocok untuk individu yang mengalami kekurangan dalam pendengaran atau memiliki keterbatasan mendengar lainnya. Aplikasi ini memungkinkan mereka untuk mengekspresikan cerita dan emosi melalui ekspresi visual dan tindakan, memberikan sebuah platform kreatif dan inklusif untuk merancang proyek-proyek visual tanpa tergantung pada dialog verbal.</string>
     <string name="start_now">MARI MULAI</string>
-    <string name="description_splash">"Komunikasi Isyarat Tanpa Batas"</string>
+    <string name="title_home">Home</string>
+    <string name="title_task">Task</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_video">Video</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="search">Search abjad here</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="makanan">MAKANAN</string>
+    <string name="sapa">SAPAAN</string>
     <string name="perkenalan">PERKENALAN</string>
     <string name="huruf">ABJAD</string>
     <string name="jumlah_abjad">24 Abjad</string>
@@ -50,5 +57,44 @@
     <string name="game">Game BISINDO</string>
     <string name="abjad">abjad</string>
     <string name="Ayo">Ayo asah kemampuan mu..</string>
-    <string name="lagi">Lagi</string>
+    <string-array name="data_video">
+        <item>Saya sudah Makan</item>
+        <item>Saya sudah Minum</item>
+        <item>Saya sudah Tidur</item>
+        <item>Saya sudah Mandi</item>
+        <item>Saya sudah Belajar</item>
+        <item>Saya sudah Bermain</item>
+        <item>Saya sudah Membaca</item>
+        <item>Saya sudah Menulis</item>
+    </string-array>
+
+    <string-array name="data_abjad">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+    </string-array>
 </resources>

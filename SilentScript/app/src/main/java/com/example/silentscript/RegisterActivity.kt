@@ -10,11 +10,8 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import com.example.mystoryapp.data.preference.UserPreferences
 import com.example.silentscript.databinding.ActivityRegisterBinding
 import com.example.silentscript.ui.register.RegisterViewModel
-import kotlinx.coroutines.launch
 
 class RegisterActivity : AppCompatActivity() {
 

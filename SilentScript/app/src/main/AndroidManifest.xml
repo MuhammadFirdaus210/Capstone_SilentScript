@@ -13,9 +13,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ear"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ear"
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.SilentScript"
         tools:targetApi="31">
@@ -41,9 +41,9 @@
             android:name=".ui.library.huruf.HurufActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".GetStarted"
             android:exported="true"
-            android:label="@string/app_name">
+            android:theme="@style/Theme.SilentScript">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,9 +51,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GetStarted"
-            android:exported="false"
-            android:label="@string/title_activity_main" />
+            android:name=".LoginActivity"
+            android:exported="false"/>
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
