@@ -88,6 +88,23 @@ class LoginInput : AppCompatEditText {
                 })
             }
 
+            R.id.email_login -> {
+                addTextChangedListener(object : TextWatcher {
+                    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+                    override fun afterTextChanged(p0: Editable?) {}
+
+                    override fun onTextChanged(
+                        s: CharSequence?,
+                        start: Int,
+                        before: Int,
+                        count: Int
+                    ) {
+                        if (!s.isNullOrEmpty() && s.length < 8)
+                            error = context.getString(R.string.error_email)
+                    }
+                })
+            }
+
             R.id.confirmation -> {
                 confirmation =
                     ContextCompat.getDrawable(context, R.drawable.baseline_lock) as Drawable
@@ -120,48 +137,65 @@ class LoginInput : AppCompatEditText {
 
             R.id.password -> {
                 password = ContextCompat.getDrawable(context, R.drawable.baseline_lock) as Drawable
-                    inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                    compoundDrawablePadding = 16
+                inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                compoundDrawablePadding = 16
 
-                    setHint(R.string.password)
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        setAutofillHints(AUTOFILL_HINT_PASSWORD)
+                setHint(R.string.password)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    setAutofillHints(AUTOFILL_HINT_PASSWORD)
+                }
+                setDrawable(password)
+                passwordEditText = this
+
+                addTextChangedListener(object : TextWatcher {
+                    override fun beforeTextChanged(
+                        p0: CharSequence?,
+                        p1: Int,
+                        p2: Int,
+                        p3: Int
+                    ) {
                     }
-                    setDrawable(password)
-                    passwordEditText = this
 
-                    addTextChangedListener(object : TextWatcher {
-                        override fun beforeTextChanged(
-                            p0: CharSequence?,
-                            p1: Int,
-                            p2: Int,
-                            p3: Int
-                        ) {
-                        }
+                    override fun afterTextChanged(p0: Editable?) {}
 
-                        override fun afterTextChanged(p0: Editable?) {}
-
-                        override fun onTextChanged(
-                            s: CharSequence?,
-                            start: Int,
-                            before: Int,
-                            count: Int
-                        ) {
-                            if (!s.isNullOrEmpty() && s.length < 8)
-                                error = context.getString(R.string.error_password)
-                            // Add logic if needed for additional checks
-                        }
-                    })
-
-//                    // Find the ImageView for toggling password visibility
-//                    val parentView = this.parent as? RelativeLayout
-//                    parentView?.let {
-//                        val toggleView = it.findViewById<ImageView>(R.id.password_toggle)
-//                        toggleView?.setOnClickListener {
-//                            togglePasswordVisibility(toggleView)
-//                        }
-//                    }
+                    override fun onTextChanged(
+                        s: CharSequence?,
+                        start: Int,
+                        before: Int,
+                        count: Int
+                    ) {
+                        if (!s.isNullOrEmpty() && s.length < 8)
+                            error = context.getString(R.string.error_password)
+                        // Add logic if needed for additional checks
+                    }
+                })
             }
+
+            R.id.password_login -> {
+                addTextChangedListener(object : TextWatcher {
+                    override fun beforeTextChanged(
+                        p0: CharSequence?,
+                        p1: Int,
+                        p2: Int,
+                        p3: Int
+                    ) {
+                    }
+
+                    override fun afterTextChanged(p0: Editable?) {}
+
+                    override fun onTextChanged(
+                        s: CharSequence?,
+                        start: Int,
+                        before: Int,
+                        count: Int
+                    ) {
+                        if (!s.isNullOrEmpty() && s.length < 8)
+                            error = context.getString(R.string.error_password)
+                        // Add logic if needed for additional checks
+                    }
+                })
+            }
+
         }
     }
 

@@ -33,7 +33,6 @@ class RegisterActivity : AppCompatActivity() {
         progressDialog.setMessage("Please wait...")
 
         binding.login.setOnClickListener(){
-            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
 

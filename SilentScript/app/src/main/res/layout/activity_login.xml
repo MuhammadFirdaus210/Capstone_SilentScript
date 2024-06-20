@@ -6,120 +6,119 @@
     android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity">\
+
+
+    <TextView
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/poppins"
+        android:text="@string/welcome"
+        android:textColor="@color/blue_4"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.149"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_gravity="center"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:text="@string/welcome"
-            android:textSize="20sp"
-            android:textColor="@color/blue_4"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/poppins"
-            android:gravity="center"
-            />
+        android:layout_marginTop="70dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="250dp"
-            android:src="@drawable/silent"
-            />
+            android:layout_gravity="center"
+            android:src="@drawable/silent" />
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
             android:layout_gravity="start"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:startIconDrawable="@drawable/baseline_email"
-            android:hint="Email">
+            android:hint="Email"
+            app:startIconDrawable="@drawable/baseline_email">
 
             <com.example.silentscript.customeview.login.LoginInput
-                android:id="@+id/email"
+                android:id="@+id/email_login"
+                android:fontFamily="@font/poplight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
             android:layout_gravity="start"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="Sandi"
             app:endIconMode="password_toggle"
-            app:startIconDrawable="@drawable/baseline_lock"
-            android:hint="Sandi">
+            app:startIconDrawable="@drawable/baseline_lock">
 
             <com.example.silentscript.customeview.login.LoginInput
-                android:id="@+id/password"
+                android:id="@+id/password_login"
+                android:fontFamily="@font/poplight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
                 android:inputType="textPassword"
+                android:textSize="14sp"
                 app:passwordToggleEnabled="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="23dp"
-            android:gravity="end"
-            android:orientation="horizontal"
-            android:paddingEnd="20dp">
-        </LinearLayout>
 
         <com.example.silentscript.customeview.login.LoginButton
             android:id="@+id/login"
-            android:gravity="center"
             android:layout_width="match_parent"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:fontFamily="@font/popmed"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp" />
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/popmed"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginTop="15dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/blue_4"
-                android:textSize="12sp"
                 android:fontFamily="@font/poplight"
                 android:text="@string/dont"
-                />
+                android:textColor="@color/blue_4"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/register"
                 android:layout_width="wrap_content"
-                android:fontFamily="@font/popmed"
-                android:textSize="12sp"
-                android:layout_marginStart="5dp"
-                android:textColor="@color/blue_4"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/popmed"
                 android:text="@string/register"
-                />
+                android:textColor="@color/blue_4"
+                android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

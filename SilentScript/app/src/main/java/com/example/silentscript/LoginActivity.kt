@@ -43,8 +43,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
 
-        email = findViewById(R.id.email)
-        password = findViewById(R.id.password)
+        email = findViewById(R.id.email_login)
+        password = findViewById(R.id.password_login)
         btnLogin = findViewById(R.id.login)
         btnRegis = findViewById(R.id.register)
         progressDialog = ProgressDialog(this)

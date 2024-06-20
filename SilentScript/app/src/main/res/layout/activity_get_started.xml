@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_splash"
-    tools:context=".view.welcome.WelcomeActivity">
+    >
 
     <ImageView
         android:id="@+id/textView4"
@@ -51,10 +50,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed-light"
+        android:fontFamily="@font/popmed"
         android:gravity="center_horizontal"
         android:text="@string/title_menu1"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/blue_4"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/logoMenu1"
@@ -88,10 +87,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed-light"
+        android:fontFamily="@font/popmed"
         android:gravity="center_horizontal"
         android:text="@string/title_menu2"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/blue_4"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/logoMenu2"
@@ -107,6 +106,7 @@
         android:text="@string/description_menu2"
         android:textColor="@color/black"
         android:textSize="12sp"
+        android:fontFamily="@font/poplight"
         app:layout_constraintEnd_toEndOf="@+id/titleMenu2"
         app:layout_constraintStart_toStartOf="@+id/titleMenu3"
         app:layout_constraintTop_toBottomOf="@+id/titleMenu3" />
@@ -125,10 +125,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed-light"
+        android:fontFamily="@font/popmed"
         android:gravity="center_horizontal"
         android:text="@string/let_start"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/blue_4"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/logoMenu3"
@@ -141,6 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center_horizontal"
+        android:fontFamily="@font/poplight"
         android:text="@string/description_menu3"
         android:textColor="@color/black"
         android:textSize="12sp"
@@ -159,7 +160,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
         app:srcCompat="@drawable/ic_circle_24"
-        app:tint="@color/colorPrimary" />
+        app:tint="@color/blue_4" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/menu2"
@@ -173,7 +174,7 @@
         app:layout_constraintTop_toTopOf="@+id/menu1"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_circle_24"
-        app:tint="@color/colorPrimary" />
+        app:tint="@color/blue_4" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/menu3"
@@ -186,18 +187,18 @@
         app:layout_constraintStart_toEndOf="@+id/menu2"
         app:layout_constraintTop_toTopOf="@+id/menu2"
         app:srcCompat="@drawable/ic_circle_24"
-        app:tint="@color/colorPrimary" />
+        app:tint="@color/blue_4" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_start"
         android:layout_width="0dp"
-        android:backgroundTint="#3C486B"
         android:layout_height="wrap_content"
         android:alpha="0"
+        android:textColor="@color/white"
         android:layout_marginBottom="32dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/bg_rounded"
+        android:background="@drawable/backgroud_blue"
         android:text="@string/start_now"
         app:layout_constraintBottom_toTopOf="@+id/menu2"
         app:layout_constraintEnd_toEndOf="parent"
